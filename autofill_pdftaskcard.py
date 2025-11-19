@@ -54,7 +54,7 @@ st.markdown(f"""
     <div class="header-container" style="text-align:center; margin-top:-25px;">
         <img src="data:image/png;base64,{logo_base64}" width="140">
         <h1>TASKCARD LINE MAINTENANCE PKU</h1>
-        <p>TASKCARD DAILY CHECK, PRE-FLIGHT CHECK, WEEKLY CHECK ON LION GROUP</p>
+        <p>TASKCARD DAILY CHECK, PRE-FLIGHT CHECK, WEEKLY CHECK AIRBUS A320 AND BOEING 737</p>
     </div>
 """, unsafe_allow_html=True)
 
@@ -75,8 +75,8 @@ if st.session_state.show_warning:
         text-align:justify;
         margin-bottom:15px;">
         ⚠️ <b>PERINGATAN:</b> Pastikan 
-        <b><u>REVISI TASKCARD MASING-MASING OPERATOR</u></b> 
-        (LION AIR / BATIK AIR) sudah update sebelum anda melanjutkan pengisian data.
+        <b><u>LAST REVISI TASKCARD MASING-MASING OPERATOR</u></b> 
+        (LION AIR / BATIK AIR / SUPER AIR JET) sudah update sebelum anda melanjutkan pengisian data.
     </div>
     """, unsafe_allow_html=True)
 
@@ -146,7 +146,7 @@ else:
 
             if operator.upper() == "LION AIR":
                 if not any(ac_eff.upper().startswith(prefix) for prefix in valid_prefix):
-                    st.error("⚠️ Untuk LION AIR, A/C Effectivity harus diawali MLI, ETJ, ILF, atau GEF.")
+                    st.error("⚠️ Untuk Boeing 737, A/C Effectivity harus diawali MLI, ETJ, ILF, atau GEF.")
                     st.stop()
             # Operator lain → TIDAK divalidasi
 
@@ -422,6 +422,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
