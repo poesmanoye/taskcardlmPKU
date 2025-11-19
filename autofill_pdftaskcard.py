@@ -99,7 +99,7 @@ else:
         "TC WEEKLY CHECK A320 BATIK REV 10.pdf": (1, 16),
         "TC DAILY CHECK B737 LION REV 39.pdf": (1, 31),
         "TC PRE-FLIGHT CHECK B737 LION REV 14.pdf": (1, 8),
-        "TC DAILY CHECK B737 BATIK REV 22.pdf": (1-18),
+        "TC DAILY CHECK B737 BATIK REV 22.pdf": (1-17),
     }
 
     template_name = st.selectbox("📄 Choose TaskCard", list(page_ranges.keys()), index=3)
@@ -364,6 +364,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
