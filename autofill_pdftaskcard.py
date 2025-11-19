@@ -235,7 +235,7 @@ else:
                                     can.drawString(480, 734, work_order)
                                     can.drawString(45, 703, ac_reg)
                                     can.drawString(118, 703, ac_msn)
-                                    can.drawString(115, 734, ac_eff)
+                                    can.drawString(115, 733, ac_eff)
                                     can.drawString(43, 630, operator)
                                     can.drawString(120, 630, place)
                                     can.drawString(34, 734, ac_type)
@@ -243,7 +243,7 @@ else:
                                     can.drawString(66, 734, work_order)
                                     can.drawString(145, 734, ac_reg)
                                     can.drawString(203, 734, ac_msn)
-                                    can.drawString(270, 734, ac_eff)
+                                    can.drawString(270, 733, ac_eff)
                                     can.drawString(360, 734, operator)                                   
 
                             # === WEEKLY BATIK REV 10 ===
@@ -364,6 +364,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
