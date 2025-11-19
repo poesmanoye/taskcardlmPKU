@@ -162,11 +162,44 @@ else:
             else:
 
                 # ======================================================
-                # 🔸 VALIDASI A/C TYPE VS TEMPLATE
+                # 🔸 VALIDASI A/C TYPE VS TEMPLATE (WAJIB SESUAI PESAWAT)
                 # ======================================================
-                if "B737 BATIK" in template_name and not ac_type.startswith("B737"):
-                    st.error("⚠️ A/C TYPE tidak sesuai! Taskcard ini khusus untuk pesawat B737 BATIK.")
-                    st.stop()
+
+                # --- B737 BATIK ---
+                if "B737" in template_name and "BATIK" in template_name:
+                    if operator.upper() != "BATIK AIR":
+                        st.error("⚠️ Operator harus BATIK AIR untuk taskcard ini.")
+                        st.stop()
+                    if not ac_type.startswith("B737"):
+                        st.error("⚠️ A/C TYPE harus B737-800 NG atau B737-900 ER untuk taskcard B737 BATIK.")
+                        st.stop()
+                
+                # --- A320 BATIK ---
+                elif "A320" in template_name and "BATIK" in template_name:
+                    if operator.upper() != "BATIK AIR":
+                        st.error("⚠️ Operator harus BATIK AIR untuk taskcard ini.")
+                        st.stop()
+                    if ac_type != "A320":
+                        st.error("⚠️ A/C TYPE harus A320 untuk taskcard A320 BATIK.")
+                        st.stop()
+                
+                # --- B737 LION ---
+                elif "B737" in template_name and "LION" in template_name:
+                    if operator.upper() != "LION AIR":
+                        st.error("⚠️ Operator harus LION AIR untuk taskcard ini.")
+                        st.stop()
+                    if not ac_type.startswith("B737"):
+                        st.error("⚠️ A/C TYPE harus B737 untuk taskcard B737 LION.")
+                        st.stop()
+                
+                # --- A320 SUPER AIR JET ---
+                elif "A320" in template_name and "SUPER AIR JET" in template_name:
+                    if operator.upper() != "SUPER AIR JET":
+                        st.error("⚠️ Operator harus SUPER AIR JET untuk taskcard ini.")
+                        st.stop()
+                    if ac_type != "A320":
+                        st.error("⚠️ A/C TYPE harus A320 untuk taskcard A320 SUPER AIR JET.")
+                        st.stop()
 
                 # ======================================================
                 # PROCESS PDF
@@ -389,6 +422,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
