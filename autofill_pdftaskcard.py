@@ -164,7 +164,7 @@ else:
            # ======================================================
            # 🔸 VALIDASI A/C TYPE VS TEMPLATE
            # ======================================================
-            if "B737" in template_name and not ac_type.startswith("B737"):
+            if "B737 BATIK" in template_name and not ac_type.startswith("B737"):
                 st.error("⚠️ A/C TYPE tidak sesuai! Taskcard ini khusus untuk pesawat B737 BATIK.")
                 st.stop()
 
@@ -390,6 +390,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
