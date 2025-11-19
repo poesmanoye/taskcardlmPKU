@@ -231,7 +231,7 @@ else:
 
                             # === DAILY BATIK 737 REV 22 ==
                             elif template_name == "TC DAILY CHECK B737 BATIK REV 22.pdf":
-                                if I == start_page:
+                                if i == start_page:
                                     can.drawString(480, 734, work_order)
                                     can.drawString(45, 703, ac_reg)
                                     can.drawString(118, 703, ac_msn)
@@ -364,6 +364,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
