@@ -243,7 +243,7 @@ else:
                                     can.drawString(66, 733, work_order)
                                     can.drawString(145, 733, ac_reg)
                                     can.drawString(203, 733, ac_msn)
-                                    can.drawString(268, 733, ac_eff)
+                                    can.drawString(273, 733, ac_eff)
                                     can.drawString(378, 733, operator)                                   
 
                             # === WEEKLY BATIK REV 10 ===
@@ -364,6 +364,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
