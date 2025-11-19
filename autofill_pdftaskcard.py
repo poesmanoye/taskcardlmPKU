@@ -95,11 +95,11 @@ else:
         "TC PRE-FLIGHT CHECK A320 SUPER AIR JET REV 01.pdf": (1, 8),
         "TC WEEKLY CHECK A320 SUPER AIR JET REV 10.pdf": (1, 16),
         "TC DAILY CHECK A320 BATIK REV 08.pdf": (1, 27),
-        "TC PRE-FLIGHT CHECK A320 BATIK REV 02.pdf": (1, 8),
+        "TC PRE-FLIGHT CHECK A320 BATIK REV 02.pdf": (1, 9),
         "TC WEEKLY CHECK A320 BATIK REV 10.pdf": (1, 16),
         "TC DAILY CHECK B737 LION REV 39.pdf": (1, 31),
-        "TC PRE-FLIGHT CHECK B737 LION REV 14.pdf": (1, 8),
-        "TC DAILY CHECK B737 BATIK REV 22.pdf": (1, 17),
+        "TC PRE-FLIGHT CHECK B737 LION REV 14.pdf": (1, 9),
+        "TC DAILY CHECK B737 BATIK REV 22.pdf": (1, 18),
     }
 
     template_name = st.selectbox("📄 Choose TaskCard", list(page_ranges.keys()), index=3)
@@ -235,7 +235,7 @@ else:
                                     can.drawString(480, 734, work_order)
                                     can.drawString(45, 703, ac_reg)
                                     can.drawString(118, 703, ac_msn)
-                                    can.drawString(112, 734, ac_eff)
+                                    can.drawString(110, 734, ac_eff)
                                     can.drawString(43, 630, operator)
                                     can.drawString(120, 630, place)
                                     can.drawString(34, 734, ac_type)
@@ -243,8 +243,8 @@ else:
                                     can.drawString(66, 733, work_order)
                                     can.drawString(145, 733, ac_reg)
                                     can.drawString(203, 733, ac_msn)
-                                    can.drawString(270, 733, ac_eff)
-                                    can.drawString(360, 733, operator)                                   
+                                    can.drawString(268, 733, ac_eff)
+                                    can.drawString(378, 733, operator)                                   
 
                             # === WEEKLY BATIK REV 10 ===
                             elif template_name == "TC WEEKLY CHECK A320 BATIK REV 10.pdf":
@@ -364,6 +364,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
