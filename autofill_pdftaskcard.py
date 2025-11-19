@@ -109,7 +109,7 @@ else:
 
     # Form Input
     with st.form("pdf_form"):
-        st.subheader("MASUKAN DATA DENGAN BENAR, JIKA TIDAK SESUAI MAKA TIDAK BISA DI PROSES")
+        st.subheader("MASUKAN DATA DENGAN BENAR")
 
         col1, col2 = st.columns(2)
         with col1:
@@ -422,6 +422,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
