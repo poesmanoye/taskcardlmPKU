@@ -370,7 +370,7 @@ else:
                                     can.drawString(47, 702, ac_reg)
                                     can.drawString(118, 702, ac_msn)
                                     can.drawString(123, 734, ac_eff)
-                                    can.drawString(42, 635, operator)
+                                    can.drawString(35, 635, operator)
                                     can.drawString(120, 635, place)
                                     can.drawString(52, 734, ac_type)
                                 else:
@@ -387,7 +387,7 @@ else:
                                     can.drawString(47, 702, ac_reg)
                                     can.drawString(118, 702, ac_msn)
                                     can.drawString(123, 734, ac_eff)
-                                    can.drawString(42, 635, operator)
+                                    can.drawString(35, 635, operator)
                                     can.drawString(120, 635, place)
                                     can.drawString(52, 734, ac_type)
                                 else:
@@ -447,6 +447,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
