@@ -353,7 +353,7 @@ else:
                                     can.drawString(45, 703, ac_reg)
                                     can.drawString(117, 703, ac_msn)
                                     can.drawString(123, 735, ac_eff)
-                                    can.drawString(35, 636, operator)
+                                    can.drawString(25, 636, operator)
                                     can.drawString(119, 636, place)
                                     can.drawString(51, 735, ac_type)
                                 else:
@@ -447,6 +447,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
