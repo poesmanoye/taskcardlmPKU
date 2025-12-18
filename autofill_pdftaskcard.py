@@ -32,7 +32,7 @@ if not st.session_state.auth:
         🚫 <b>INFORMASI PENTING</b><br><br>
         Taskcard <b>DAILY SUPER AIR JET</b> <u>sementara belum dapat dilakukan update Revision</u>.<br><br>
         Hal ini dikarenakan <b>file dari Engineering masih belum rapi / belum final</b>.<br><br>
-        <b>maka dari file Daily Super Air Jet masih menggunakan REV 09 di Website ini</b> sampai pemberitahuan selanjutnya.
+        <b>maka dari itu file Daily Super Air Jet masih menggunakan REV 09 di Website ini</b> sampai pemberitahuan selanjutnya.
     </div>
     """, unsafe_allow_html=True)
     
@@ -464,6 +464,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
