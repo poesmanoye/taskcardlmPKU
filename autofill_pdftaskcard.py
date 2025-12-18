@@ -118,7 +118,7 @@ else:
         "TC DAILY CHECK A320 BATIK REV 08.pdf": (1, 27),
         "TC DAILY CHECK B737 BATIK REV 22.pdf": (1, 18),
         "TC DAILY CHECK B737 LION REV 39.pdf": (1, 31),
-        "TC DAILY CHECK A320 SUPER AIR JET REV 10.pdf": (1, 27),
+        "TC DAILY CHECK A320 SUPER AIR JET REV 09.pdf": (1, 27),
         "TC PRE-FLIGHT CHECK A320 BATIK REV 02.pdf": (1, 9),
         "TC PRE-FLIGHT CHECK B737 BATIK REV 15.pdf": (1, 13),
         "TC PRE-FLIGHT CHECK B737 LION REV 14.pdf": (1, 9),
@@ -447,6 +447,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
