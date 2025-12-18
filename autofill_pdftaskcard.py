@@ -19,6 +19,23 @@ if not st.session_state.auth:
     "<h1 style='text-align: center;'>🔐 LOGIN REQUIRED</h1>",
     unsafe_allow_html=True
 )
+    st.markdown("""
+    <div style="
+        background-color:#fee2e2;
+        color:#7f1d1d;
+        border:1px solid #fecaca;
+        border-radius:10px;
+        padding:18px;
+        font-size:15px;
+        text-align:justify;
+        margin-bottom:18px;">
+        🚫 <b>INFORMASI PENTING</b><br><br>
+        Taskcard <b>SUPER AIR JET</b> <u>sementara belum dapat dilakukan update Revision</u>.<br><br>
+        Hal ini dikarenakan <b>file dari Engineering masih belum rapi / belum final</b>.<br><br>
+        Mohon <b>maka dari file Daily Super Air Jet masih menggunakan REV 09 di Website ini</b> sampai pemberitahuan selanjutnya.
+    </div>
+    """, unsafe_allow_html=True)
+    
     pwd = st.text_input("Masukkan Password", type="password")
 
     if st.button("LOGIN", use_container_width=True):
@@ -447,6 +464,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
