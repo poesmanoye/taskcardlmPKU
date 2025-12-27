@@ -29,10 +29,8 @@ if not st.session_state.auth:
         font-size:15px;
         text-align:justify;
         margin-bottom:18px;">
-        🚫 <b>INFORMASI PENTING</b><br><br>
-        Taskcard <b>DAILY SUPER AIR JET</b> <u>sementara belum dapat dilakukan update Revision</u>.<br><br>
-        Hal ini dikarenakan <b>file dari Engineering masih belum rapi / belum final</b>.<br><br>
-        <b>maka dari itu file Daily Super Air Jet masih menggunakan REV 09 di Website ini</b> sampai pemberitahuan selanjutnya.
+        🚫 <b>INFORMASI TERBARU</b><br><br>
+        Taskcard <b>TASKCARD DAILY SUPER AIR JET</b> <u>SUDAH DI UPDATE KE REVISI TERBARU</u>
     </div>
     """, unsafe_allow_html=True)
     
@@ -135,7 +133,7 @@ else:
         "TC DAILY CHECK A320 BATIK REV 08.pdf": (1, 27),
         "TC DAILY CHECK B737 BATIK REV 22.pdf": (1, 18),
         "TC DAILY CHECK B737 LION REV 39.pdf": (1, 31),
-        "TC DAILY CHECK A320 SUPER AIR JET REV 09.pdf": (1, 27),
+        "TC DAILY CHECK A320 SUPER AIR JET REV 10.pdf": (1, 27),
         "TC PRE-FLIGHT CHECK A320 BATIK REV 02.pdf": (1, 9),
         "TC PRE-FLIGHT CHECK B737 BATIK REV 15.pdf": (1, 13),
         "TC PRE-FLIGHT CHECK B737 LION REV 14.pdf": (1, 9),
@@ -364,7 +362,7 @@ else:
                                     can.drawString(355, 733, operator)                                   
 
                             # === DAILY SUPER AIR JET ===
-                            elif template_name == "TC DAILY CHECK A320 SUPER AIR JET REV 09.pdf":
+                            elif template_name == "TC DAILY CHECK A320 SUPER AIR JET REV 10.pdf":
                                 if i == start_page:
                                     can.drawString(482, 735, work_order)
                                     can.drawString(45, 703, ac_reg)
@@ -464,6 +462,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
