@@ -9,7 +9,7 @@ import base64
 st.set_page_config(page_title="TASKCARD LION GROUP", layout="centered")
 
 # === LOGIN SYSTEM ===
-PASSWORD = "pku321"
+PASSWORD = "PKU321"
 
 if "auth" not in st.session_state:
     st.session_state.auth = False
@@ -115,7 +115,7 @@ if st.session_state.show_warning:
         margin-bottom:15px;">
         ⚠️ <b>PERINGATAN:</b> Pastikan 
         <b><u>LAST REVISI TASKCARD MASING-MASING OPERATOR</u></b> 
-        (LION AIR / BATIK AIR / SUPER AIR JET) sudah update sebelum anda melanjutkan pengisian data.
+        (LION AIR / BATIK AIR / SUPER AIR JET / WING AIR) sudah update sebelum anda melanjutkan pengisian data.
     </div>
     """, unsafe_allow_html=True)
 
@@ -134,12 +134,16 @@ else:
         "TC DAILY CHECK B737 BATIK REV 22.pdf": (1, 18),
         "TC DAILY CHECK B737 LION REV 39.pdf": (1, 31),
         "TC DAILY CHECK A320 SUPER AIR JET REV 10.pdf": (1, 27),
+        "TC DAILY CHECK ATR72 WINGS REV 28.pdf": (1, 31),
         "TC PRE-FLIGHT CHECK A320 BATIK REV 02.pdf": (1, 9),
         "TC PRE-FLIGHT CHECK B737 BATIK REV 15.pdf": (1, 13),
         "TC PRE-FLIGHT CHECK B737 LION REV 14.pdf": (1, 9),
         "TC PRE-FLIGHT CHECK A320 SUPER AIR JET REV 01.pdf": (1, 8),
+        "TC PRE-FLIGHT CHECK ATR72 WINGS REV 15.pdf": (1, 10),
         "TC WEEKLY CHECK A320 SUPER AIR JET REV 10.pdf": (1, 16),
-        "TC WEEKLY CHECK A320 BATIK REV 10.pdf": (1, 16),      
+        "TC WEEKLY CHECK A320 BATIK REV 10.pdf": (1, 16),
+        "TC WEEKLY CHECK ATR72 WINGS REV 17.pdf": (1, 16),
+        "TC LINE CHECK ATR72 WINGS REV 10.pdf": (1, 16),      
     }
 
     template_name = st.selectbox("📄 Choose TaskCard", list(page_ranges.keys()), index=3)
@@ -157,7 +161,7 @@ else:
             ac_msn = st.text_input("A/C MSN.")
             ac_type = st.selectbox(
                 "A/C TYPE",
-                ["B737-800 NG", "B737-900 ER", "A320", "ATR72-500", "ATR72-600"]
+                ["B737-800 NG", "B737-900 ER", "A320", "ATR72"]
             )
         with col2:
             ac_eff = st.text_input("A/C Effectivity")
@@ -199,6 +203,8 @@ else:
                 st.error("⚠️ Operator tidak sesuai! Taskcard ini untuk BATIK AIR.")
             elif "SUPER AIR JET" in template_name.upper() and "SUPER AIR JET" not in operator.upper():
                 st.error("⚠️ Operator tidak sesuai! Taskcard ini untuk SUPER AIR JET.")
+            elif "WINGS AIR" in template_name.upper() and "WINGS AIR" not in operator.upper():
+                st.error("⚠️ Operator tidak sesuai! Taskcard ini untuk WINGS AIR.")                
             else:
 
                 # ======================================================
@@ -241,6 +247,14 @@ else:
                         st.error("⚠️ A/C TYPE harus A320 untuk taskcard A320 SUPER AIR JET.")
                         st.stop()
 
+                # --- WINGS AIR ---
+                elif "ATR72" in template_name and "WINGS AIR" in template_name:
+                    if operator.upper() != "WINGS AIR":
+                        st.error("⚠️ Operator harus WINGS AIR untuk taskcard ini.")
+                        st.stop()
+                    if ac_type != "ATR72":
+                        st.error("⚠️ A/C TYPE harus ATR72 untuk taskcard ATR72 WINGS AIR.")
+                        st.stop()
                 # ======================================================
                 # PROCESS PDF
                 # ======================================================
@@ -362,8 +376,38 @@ else:
                                     can.drawString(355, 733, operator)                                   
 
                             # === DAILY SUPER AIR JET ===
-                            elif template_name == "TC DAILY CHECK A320 SUPER AIR JET REV 10.pdf":
-                                if i == start_page:
+                            if template_name == "TC DAILY CHECK A320 SUPER AIR JET REV 10.pdf":
+
+                                # ===============================
+                                # HALAMAN 18 → KOSONG
+                                # ===============================
+                                if i == start_page + 17:
+                                    pass
+
+                                # ===============================
+                                # HALAMAN 19 → TURUN
+                                # ===============================
+                                elif i == start_page + 12:
+                                    can.drawString(65, 724, work_order)
+                                    can.drawString(147, 724, ac_reg)
+                                    can.drawString(203, 724, ac_msn)
+                                    can.drawString(277, 724, ac_eff)
+                                    can.drawString(345, 724, operator)
+
+                                # ===============================
+                                # HALAMAN 19 → TURUN
+                                # ===============================
+                                elif i == start_page + 18:
+                                    can.drawString(65, 724, work_order)
+                                    can.drawString(147, 724, ac_reg)
+                                    can.drawString(203, 724, ac_msn)
+                                    can.drawString(277, 724, ac_eff)
+                                    can.drawString(345, 724, operator)
+
+                                # ===============================
+                                # YANG KAMU MINTA → TETAP DIPERTAHANKAN
+                                # ===============================
+                                elif i == start_page or i == start_page + 2:
                                     can.drawString(482, 735, work_order)
                                     can.drawString(45, 703, ac_reg)
                                     can.drawString(117, 703, ac_msn)
@@ -371,6 +415,10 @@ else:
                                     can.drawString(29, 636, operator)
                                     can.drawString(119, 636, place)
                                     can.drawString(51, 735, ac_type)
+
+                                # ===============================
+                                # HALAMAN LAIN (DEFAULT)
+                                # ===============================
                                 else:
                                     can.drawString(65, 733, work_order)
                                     can.drawString(147, 733, ac_reg)
@@ -412,6 +460,73 @@ else:
                                     can.drawString(277, 733, ac_eff)
                                     can.drawString(345, 733, operator)
 
+                            # === DAILY WINGS AIR ===
+                            elif template_name == "TC DAILY CHECK ATR72 WINGS REV 28.pdf":
+                                if i == start_page:
+                                    can.drawString(482, 735, work_order)
+                                    can.drawString(45, 703, ac_reg)
+                                    can.drawString(117, 703, ac_msn)
+                                    can.drawString(123, 735, ac_eff)
+                                    can.drawString(29, 636, operator)
+                                    can.drawString(119, 636, place)
+                                    can.drawString(51, 735, ac_type)
+                                else:
+                                    can.drawString(65, 733, work_order)
+                                    can.drawString(147, 733, ac_reg)
+                                    can.drawString(203, 733, ac_msn)
+                                    can.drawString(277, 733, ac_eff)
+                                    can.drawString(345, 733, operator)
+
+                            # === PRE-FLIGHT WINGS AIR ===
+                            elif template_name == "TC PRE-FLIGHT CHECK ATR72 WINGS REV 15.pdf":
+                                if i == start_page:
+                                    can.drawString(480, 734, work_order)
+                                    can.drawString(47, 702, ac_reg)
+                                    can.drawString(118, 702, ac_msn)
+                                    can.drawString(123, 734, ac_eff)
+                                    can.drawString(29, 635, operator)
+                                    can.drawString(120, 635, place)
+                                    can.drawString(52, 734, ac_type)
+                                else:
+                                    can.drawString(65, 733, work_order)
+                                    can.drawString(147, 733, ac_reg)
+                                    can.drawString(203, 733, ac_msn)
+                                    can.drawString(277, 733, ac_eff)
+                                    can.drawString(345, 733, operator)
+
+                            # === WEEKLY WINGS AIR ===
+                            elif template_name == "TC WEEKLY CHECK ATR72 WINGS REV 17.pdf":
+                                if i == start_page:
+                                    can.drawString(480, 734, work_order)
+                                    can.drawString(47, 702, ac_reg)
+                                    can.drawString(118, 702, ac_msn)
+                                    can.drawString(123, 734, ac_eff)
+                                    can.drawString(29, 635, operator)
+                                    can.drawString(120, 635, place)
+                                    can.drawString(52, 734, ac_type)
+                                else:
+                                    can.drawString(65, 733, work_order)
+                                    can.drawString(147, 733, ac_reg)
+                                    can.drawString(203, 733, ac_msn)
+                                    can.drawString(277, 733, ac_eff)
+                                    can.drawString(345, 733, operator)
+
+                            # === LINE WINGS AIR ===
+                            elif template_name == "TC LINE CHECK ATR72 WINGS REV 10.pdf":
+                                if i == start_page:
+                                    can.drawString(480, 734, work_order)
+                                    can.drawString(47, 702, ac_reg)
+                                    can.drawString(118, 702, ac_msn)
+                                    can.drawString(123, 734, ac_eff)
+                                    can.drawString(29, 635, operator)
+                                    can.drawString(120, 635, place)
+                                    can.drawString(52, 734, ac_type)
+                                else:
+                                    can.drawString(65, 733, work_order)
+                                    can.drawString(147, 733, ac_reg)
+                                    can.drawString(203, 733, ac_msn)
+                                    can.drawString(277, 733, ac_eff)
+                                    can.drawString(345, 733, operator)
                             # === DEFAULT ===
                             else:
                                 if i == start_page:
@@ -462,6 +577,7 @@ else:
 
 # Footer
 st.markdown("<hr><p style='text-align:center;color:#94a3b8;'>Dibuat oleh nomnom_</p>", unsafe_allow_html=True)
+
 
 
 
